@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.wrap{
+    background: #000;
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 500px;
+}
+.products{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.product{
+    height: 200px;
+    width: 300px;
+    background: #fff;
+    margin: 15px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}

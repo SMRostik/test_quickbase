@@ -6,9 +6,7 @@ require_once(ROOT.'/libs/quickbase/qbFunc.php');
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 
-$update = $qb->DoQuery("bp9hkyvvu", "{''.EX.''}");
-
-$route = isset($_GET['r'])?$_GET['r']:'';
+$route = isset($_GET['r']) ? $_GET['r'] : '';
 if(!$route) $route = 'product/index';
 $temp = explode('/', $route);
 

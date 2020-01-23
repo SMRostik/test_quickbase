@@ -2,9 +2,10 @@
 
 class ProductController{
     public function index(){
-        echo("<pre>");
+        $title = "Products";
         $productModel = new Product();
-        print_r($productModel->getProducts());
-        echo("</pre>");
+        $products = $productModel->getProducts();
+
+        require_once(ROOT."/view/product/products.php");
     }
 }
