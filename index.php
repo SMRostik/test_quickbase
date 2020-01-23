@@ -6,6 +6,13 @@ require_once(ROOT.'/libs/quickbase/qbFunc.php');
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 
+function de($value, $exit = 0){
+    echo("<pre>");
+    print_r($value);
+    echo("</pre>");
+    if($exit) die;
+}
+
 $route = isset($_GET['r']) ? $_GET['r'] : '';
 if(!$route) $route = 'product/index';
 $temp = explode('/', $route);
@@ -17,6 +24,7 @@ $action = array_shift($temp);
 $controllerObject = new $controller;
 
 $parameters = $_GET;
+array_shift($parameters);
 call_user_func_array(array($controllerObject, $action), $parameters);
 
 

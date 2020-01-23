@@ -7,7 +7,6 @@
     background: #000;
     width: 1200px;
     margin: 0 auto;
-    min-height: 500px;
 }
 .products{
     display: flex;
@@ -18,10 +17,30 @@
 }
 
 .product{
-    height: 200px;
     width: 300px;
     background: #fff;
     margin: 15px;
     padding: 0 15px;
     box-sizing: border-box;
+}
+
+.product__add-to-cart{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 15px 0;
+    border: 0;
+    background: #444;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #fff;
+    cursor: pointer;
+}
+
+.product__add-to-cart:hover{
+    color: #eee;
+    background: #333;
+}
+.product__add-to-cart:active{
+    box-shadow: #000 inset 0px 0px 30px;
 }

@@ -2,6 +2,7 @@
 
 class Product extends Model{
     public function getProducts(){
-        return $this->qb->DoQuery("bp9hkyvvu", "{''.EX.''}");
+        //de($this->qb->DoQuery($this->table['cart'], "{''.EX.''}"));
+        return $this->qb->DoQuery($this->table['product'], "{''.EX.''}");
     }
 }
