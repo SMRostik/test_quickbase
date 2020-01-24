@@ -44,3 +44,19 @@
 .product__add-to-cart:active{
     box-shadow: #000 inset 0px 0px 30px;
 }
+
+.header{
+    background: #000;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.cart-btn{
+    background: #fff;
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.25em;
+
+}

@@ -16,36 +16,36 @@ class Cart extends Model{
         //     setcookie("cart", json_encode($cart));
         // }
 
+        $cart_id = 0;
         if(!$this->qb->DoQuery($this->table['user'], sprintf("{''.EX.'%s'}", $user_id))){
             $data = array();
             $data[] = array('value' => $user_id, 'fid' => 6);
-            $user = $this->qb->AddRecord($this->table['user'], $data, 1);
+            $user = $this->qb->AddRecord($this->table['user'], $data);
             $this->setCartItem($user->rid, $product_id, 1);
+            $cart_id = $user->rid;
         } else {
             $user = $this->qb->DoQuery($this->table['user'], sprintf("{''.EX.'%s'}", $user_id));
             if($user[0]['id']){
                 $this->setCartItem($user[0]['id'], $product_id);
+                $cart_id = $user[0]['id'];
             }
         }
-        
 
-        //de($this->qb->DoQuery($this->table['user'], "{''.EX.'383ea0502bfdb3526f3b72e1c349ed66'}"));
+        return count($this->qb->DoQuery($this->table['cart'], sprintf("{'8'.EX.'%s'}", $cart_id)));
     }
 
-    protected function setCartItem($user_id, $product_id, $quantity = 0){
+    protected function setCartItem($user_id, $product_id){
         $data = array();
         $data[] = array('value' => $user_id, 'fid' => 8);
         $data[] = array('value' => $product_id, 'fid' => 7);
-        if($quantity){
-            $data[] = array('value' => $quantity, 'fid' => 6);
-            $user = $this->qb->AddRecord($this->table['cart'], $data, 1);
+
+        $cart = $this->qb->DoQuery($this->table['cart'], sprintf("{'8'.EX.'%s'} AND {'7'.EX.'%s'}", $user_id, $product_id));
+        if($cart){
+            $data[] = array('value' => ++$cart[0][6], 'fid' => 6);
+            $user = $this->qb->EditRecord($this->table['cart'], $cart[0]['id'], $data);
         } else {
-            $cart = $this->qb->DoQuery($this->table['cart'], sprintf("{'8'.EX.'%s'} AND {'7'.EX.'%s'}", $user_id, $product_id));
-            if($cart){
-                $data[] = array('value' => ++$cart[0][6], 'fid' => 6);
-                $user = $this->qb->EditRecord($this->table['cart'], $cart[0]['id'], $data);
-            }
+            $data[] = array('value' => 1, 'fid' => 6);
+            $user = $this->qb->AddRecord($this->table['cart'], $data, 1);
         }
-        
     }
 }

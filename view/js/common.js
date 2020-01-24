@@ -9,7 +9,9 @@
             xhr.onload = function () {
                 if (xhr.status != 200) {
                     alert(`error ${xhr.status}: ${xhr.statusText}`);
-                } 
+                } else {
+                    document.querySelector(".cart-btn__count").innerHTML = xhr.response;
+                }
             };
 
             xhr.onerror = function () {

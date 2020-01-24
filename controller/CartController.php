@@ -3,7 +3,7 @@
 class CartController{
     public function addToCart($id){
         $cart = new Cart();
-        $cart->addProductToCart($this->getUsetId(), $id);
+        echo $cart->addProductToCart($this->getUsetId(), $id);
     }
 
     private function getUsetId(){
