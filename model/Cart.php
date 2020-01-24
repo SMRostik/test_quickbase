@@ -38,14 +38,14 @@ class Cart extends Model{
         $data[] = array('value' => $product_id, 'fid' => 7);
         if($quantity){
             $data[] = array('value' => $quantity, 'fid' => 6);
+            $user = $this->qb->AddRecord($this->table['cart'], $data, 1);
         } else {
             $cart = $this->qb->DoQuery($this->table['cart'], sprintf("{'8'.EX.'%s'} AND {'7'.EX.'%s'}", $user_id, $product_id));
-            de($cart);
-            // if($cart){
-            //     $data[] = array('value' => ++$cart[0][6], 'fid' => 6);
-            // }
-            exit;
+            if($cart){
+                $data[] = array('value' => ++$cart[0][6], 'fid' => 6);
+                $user = $this->qb->EditRecord($this->table['cart'], $cart[0]['id'], $data);
+            }
         }
-        $user = $this->qb->AddRecord($this->table['cart'], $data, 1);
+        
     }
 }
