@@ -1,5 +1,8 @@
 <?php require_once(ROOT."/view/header.php"); ?>
 <div class="wrap">
+    <div class="header">
+        <div class="cart-btn">Cart (<span class="cart-btn__count">0</span>)</div>
+    </div>
     <div class="products">
         <?php foreach($products as $value){ ?>
         <div class="product">
