@@ -244,7 +244,6 @@ Notes: 10/21/2009 - Added GetCList Function
 			$pos = 0;
 			if ($queries) {
 				$xml_packet.='<query>'.$queries.'</query>';
-				$xml_packet.='<includeRids>1</includeRids>';
 			}
 			else {
 				return false;
@@ -268,7 +267,6 @@ Notes: 10/21/2009 - Added GetCList Function
 					$arrayresponse[$i][(string)$response->table->fields->field[$m]->attributes()->id]=(string)$response->table->records->record[$i]->f[$m];
 					$m++;
 				}
-				$arrayresponse[$i]['id'] = (string)$response->table->records->record[$i]->attributes()->rid;
 				$i++;
 			}
 			$response = $arrayresponse;
