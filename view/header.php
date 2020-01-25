@@ -7,4 +7,12 @@
     <link rel="stylesheet" href="/view/css/style.css">
     <title><?=$title;?></title>
 </head>
+<div class="wrap">
+    <div class="header">
+        <div class="cart-btn">Cart (<span class="cart-btn__count">0</span>)
+        <div class="cart-btn__body">
+            <div class="cart-btn_load">Loaging...</div>
+        </div>
+        </div>
+    </div>
 <body>
