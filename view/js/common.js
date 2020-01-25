@@ -2,7 +2,7 @@
     let cart = {
         addToCart: function(id){
             let xhr = new XMLHttpRequest();
-            xhr.open("GET", "/index.php/?r=cart/addToCart&id=" + id);
+            xhr.open("GET", "/index.php?r=cart/addToCart&id=" + id);
             xhr.send();
 
             xhr.onload = function () {
@@ -18,13 +18,16 @@
             };
         },
         del: function(id){
+            $this = this;
             let xhr = new XMLHttpRequest();
-            xhr.open("GET", "/index.php/?r=cart/delProductFromCart&id=" + id);
+            xhr.open("GET", "/index.php?r=cart/delProductFromCart&id=" + id);
             xhr.send();
 
             xhr.onload = function () {
                 if (xhr.status != 200) {
                     alert(`error ${xhr.status}: ${xhr.statusText}`);
+                } else {
+                    $this.updateCount();
                 }
             };
 
@@ -34,7 +37,7 @@
         },
         getCart: function(){
             let xhr = new XMLHttpRequest();
-            xhr.open("GET", "/index.php/?r=cart/getCart");
+            xhr.open("GET", "/index.php?r=cart/getCart");
             xhr.send();
 
             xhr.onload = function () {
@@ -51,7 +54,7 @@
         },
         updateCount: function(){
             let xhr = new XMLHttpRequest();
-            xhr.open("GET", "/index.php/?r=cart/getCount");
+            xhr.open("GET", "/index.php?r=cart/getCount");
             xhr.send();
 
             xhr.onload = function () {
@@ -76,7 +79,7 @@
         if (e.target.classList.contains('cart-product__del')) {
             cart.del(id);
             e.target.parentElement.remove();
-            cart.updateCount();
+            //cart.updateCount();
         }
         if(!(e.target.classList.contains('cart-btn__body') || e.target.classList.contains('cart-btn'))){
             document.querySelector(".cart-btn__body").classList.remove("cart-btn__body_active");
