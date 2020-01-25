@@ -9,10 +9,11 @@
 </head>
 <div class="wrap">
     <div class="header">
+        <a class="logo" href="/">HOME</a>
         <div class="cart-btn">Cart (<span class="cart-btn__count">0</span>)
-        <div class="cart-btn__body">
-            <div class="cart-btn_load">Loaging...</div>
-        </div>
+            <div class="cart-btn__body">
+                <div class="cart-btn_load">Loaging...</div>
+            </div>
         </div>
     </div>
 <body>

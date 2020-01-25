@@ -31,6 +31,11 @@ html, body{
     font-size: 1.1em;
 }
 
+.product__single{
+    width: 750px;
+    text-align: center;
+}
+
 .cart-product{
     width: 300px;
     background: #fff;
@@ -88,7 +93,13 @@ html, body{
     background: #000;
     margin-bottom: 15px;
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.logo{
+    color: #fff;
+    font-size: 1.5em;
+    padding: 15px;
 }
 
 .cart-btn{
