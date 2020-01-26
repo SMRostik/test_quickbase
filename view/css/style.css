@@ -35,6 +35,15 @@ html, body{
     width: 750px;
     text-align: center;
 }
+.product__image-wrap{
+    display: block;
+}
+.product__image{
+    width: 100%;
+}
+.product__image_single{
+    height: 300px;
+}
 
 .cart-product{
     width: 300px;

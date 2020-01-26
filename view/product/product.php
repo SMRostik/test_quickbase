@@ -2,6 +2,9 @@
 
     <div class="products">
         <div class="product product__single">
+            <div class="product__image-wrap">
+                <img class="product__image_single" src="<?=$product['imgUrl'];?>" alt="">
+            </div>
             <div class="product__name"><?=$product[6];?></div>
             <div class="product__sku"><?=$product[8];?></div>
             <div class="product__description"><?=$product[9];?></div>

@@ -7,4 +7,8 @@ abstract class Model{
         global $qb;
         $this->qb = $qb;
     }
+
+    protected function getImgUrl($table, $record, $field, $v = 0){
+        return sprintf("https://qubitronic.quickbase.com/up/%s/a/r%s/e%s/v%s", $table, $record, $field, $v);
+    }
 }
